@@ -1,0 +1,27 @@
+
+Tabellenspalten:
+- Verrechnungssatz (geht aus Qualifikation hervor ggf. modifiziert durch Einsatzzulage basierend auf Eintrittsdatum)
+- Programm (Typ: String)
+- Kostenstelle (Type: int)
+- Einsatzzulage (Typ: boolean); nicht editierbar da auf Eintrittsdatum basierend.
+
+
+Blätterfunktion:
+- Wochentage Mo.-So. (Radio-Button)
+- Wichtig: Daten in den Folgetag übernehmen
+
+- Anzeige des aktuellen Datums
+- Blättern nach KWs
+
+
+Schichtmodus:
+- 06:00-14:00
+- 06:00-14:30
+- 06:00-13:30
+- 14:00-22:00
+- 14:30-23:00
+- 13:30-21:00
+- 22:00-06:00 (beginnt am Sonntag)
+
+
+Export:
