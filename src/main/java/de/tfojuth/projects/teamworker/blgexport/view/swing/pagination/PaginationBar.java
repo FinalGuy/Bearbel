@@ -1,4 +1,4 @@
-package de.tfojuth.projects.teamworker.blgexport.ui.swing.pagination;
+package de.tfojuth.projects.teamworker.blgexport.view.swing.pagination;
 
 import org.springframework.stereotype.Component;
 

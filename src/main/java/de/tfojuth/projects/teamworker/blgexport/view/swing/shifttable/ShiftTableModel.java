@@ -1,8 +1,8 @@
-package de.tfojuth.projects.teamworker.blgexport.ui.swing.shifttable;
+package de.tfojuth.projects.teamworker.blgexport.view.swing.shifttable;
 
-import de.tfojuth.projects.teamworker.blgexport.domain.boundary.Employee;
-import de.tfojuth.projects.teamworker.blgexport.domain.boundary.EmployeeSchedule;
-import de.tfojuth.projects.teamworker.blgexport.domain.boundary.ShiftSchedule;
+import de.tfojuth.projects.teamworker.blgexport.model.Employee;
+import de.tfojuth.projects.teamworker.blgexport.model.EmployeeSchedule;
+import de.tfojuth.projects.teamworker.blgexport.model.ShiftSchedule;
 import org.springframework.util.Assert;
 
 import javax.swing.event.TableModelEvent;

@@ -1,6 +1,6 @@
 package de.tfojuth.projects.teamworker.blgexport;
 
-import de.tfojuth.projects.teamworker.blgexport.ui.swing.MainWindow;
+import de.tfojuth.projects.teamworker.blgexport.view.swing.MainWindow;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

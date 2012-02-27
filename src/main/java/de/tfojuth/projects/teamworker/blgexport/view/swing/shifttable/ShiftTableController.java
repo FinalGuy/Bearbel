@@ -1,7 +1,7 @@
-package de.tfojuth.projects.teamworker.blgexport.ui.swing.shifttable;
+package de.tfojuth.projects.teamworker.blgexport.view.swing.shifttable;
 
-import de.tfojuth.projects.teamworker.blgexport.domain.boundary.ScheduleGateway;
-import de.tfojuth.projects.teamworker.blgexport.domain.boundary.ShiftSchedule;
+import de.tfojuth.projects.teamworker.blgexport.controller.ScheduleGateway;
+import de.tfojuth.projects.teamworker.blgexport.model.ShiftSchedule;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

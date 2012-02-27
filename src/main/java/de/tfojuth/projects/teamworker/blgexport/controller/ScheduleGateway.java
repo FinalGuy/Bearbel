@@ -1,4 +1,6 @@
-package de.tfojuth.projects.teamworker.blgexport.domain.boundary;
+package de.tfojuth.projects.teamworker.blgexport.controller;
+
+import de.tfojuth.projects.teamworker.blgexport.model.ShiftSchedule;
 
 /**
  * Created by IntelliJ IDEA.

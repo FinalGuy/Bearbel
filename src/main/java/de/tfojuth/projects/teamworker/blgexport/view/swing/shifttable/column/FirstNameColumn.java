@@ -1,4 +1,4 @@
-package de.tfojuth.projects.teamworker.blgexport.ui.swing.shifttable.column;
+package de.tfojuth.projects.teamworker.blgexport.view.swing.shifttable.column;
 
 import javax.swing.table.TableColumn;
 

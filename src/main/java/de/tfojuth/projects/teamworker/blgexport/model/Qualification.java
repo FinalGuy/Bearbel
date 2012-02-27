@@ -1,4 +1,4 @@
-package de.tfojuth.projects.teamworker.blgexport.domain.entity;
+package de.tfojuth.projects.teamworker.blgexport.model;
 
 /**
  * Created by IntelliJ IDEA.

@@ -1,4 +1,4 @@
-package de.tfojuth.projects.teamworker.blgexport.domain.boundary;
+package de.tfojuth.projects.teamworker.blgexport.model;
 
 import java.util.ArrayList;
 import java.util.List;
