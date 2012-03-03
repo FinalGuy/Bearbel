@@ -2,13 +2,6 @@ package de.tfojuth.projects.teamworker.blgexport.model;
 
 import java.util.Date;
 
-/**
- * Created by IntelliJ IDEA.
- * User: tfojuth
- * Date: 19.02.12
- * Time: 18:59
- * To change this template use File | Settings | File Templates.
- */
 public class Employee {
 
     private String firstName;
@@ -16,12 +9,6 @@ public class Employee {
     private long employeeId;
     private long timeCardId;
     private Date dateOfJoining;
-
-    public Employee(String firstName, String lastNAme, long employeeId) {
-        this.firstName = firstName;
-        this.lastName = lastNAme;
-        this.employeeId = employeeId;
-    }
 
     public long getTimeCardId() {
         return timeCardId;

@@ -9,13 +9,6 @@ import javax.annotation.Resource;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Created by IntelliJ IDEA.
- * User: tfojuth
- * Date: 17.02.12
- * Time: 10:56
- * To change this template use File | Settings | File Templates.
- */
 @Component
 public class MainWindow extends JFrame {
 

@@ -1,8 +1,7 @@
 package de.tfojuth.projects.teamworker.blgexport.view.swing.table;
 
 import de.tfojuth.projects.teamworker.blgexport.model.Employee;
-import de.tfojuth.projects.teamworker.blgexport.model.EmployeeSchedule;
-import de.tfojuth.projects.teamworker.blgexport.model.ShiftSchedule;
+import de.tfojuth.projects.teamworker.blgexport.model.EmployeeAssignment;
 import org.springframework.util.Assert;
 
 import javax.swing.event.TableModelEvent;
@@ -11,28 +10,26 @@ import javax.swing.table.TableModel;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by IntelliJ IDEA.
- * User: tfojuth
- * Date: 19.02.12
- * Time: 19:09
- * To change this template use File | Settings | File Templates.
- */
 public class ShiftTableModel implements TableModel {
 
-    private List<EmployeeSchedule> employeeSchedules;
+
+    private List<EmployeeAssignment> employeeAssignments;
     private List<TableModelListener> modelListeners = new ArrayList<TableModelListener>();
 
-    private final String[] COLUMN_LABELS = {"Vorname", "Nachname", "Personal#", "Karten#", "Qualifikation", "Schichtmodus", "Kostenstelle", "Programm"};
-    private final Class[] COLUMN_CLASSES = {String.class, String.class, Long.TYPE, Long.TYPE, String.class, String.class, String.class, String.class};
 
-    public ShiftTableModel(ShiftSchedule shiftSchedule) {
-        this.employeeSchedules = shiftSchedule.getEmployeeSchedules();
+    private final String[] COLUMN_LABELS = {
+            "Vorname", "Nachname",
+            "Personal#", "Karten#",
+            "Qualifikation", "Schichtmodus",
+            "Kostenstelle", "Programm"};
+
+    public ShiftTableModel(List<EmployeeAssignment> employeeAssignments) {
+        this.employeeAssignments = employeeAssignments;
     }
 
     @Override
     public int getRowCount() {
-        return employeeSchedules.size();
+        return employeeAssignments.size();
     }
 
     @Override
@@ -48,7 +45,7 @@ public class ShiftTableModel implements TableModel {
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-        return COLUMN_CLASSES[columnIndex];
+        return getValueAt(0, columnIndex).getClass();
     }
 
     @Override
@@ -58,8 +55,8 @@ public class ShiftTableModel implements TableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        EmployeeSchedule employeeSchedule = employeeSchedules.get(rowIndex);
-        Employee employee = employeeSchedule.getEmployee();
+        EmployeeAssignment EmployeeAssignment = employeeAssignments.get(rowIndex);
+        Employee employee = EmployeeAssignment.getEmployee();
         switch (columnIndex) {
             case 0:
                 return employee.getFirstName();
@@ -68,7 +65,7 @@ public class ShiftTableModel implements TableModel {
             case 2:
                 return employee.getEmployeeId();
             case 3:
-                return employeeSchedule.getShiftMode();
+                return EmployeeAssignment.getAssignment().getDepartment();
             default:
                 //throw new IllegalArgumentException("Invalid column index");
                 return "<unknown>";
@@ -77,8 +74,8 @@ public class ShiftTableModel implements TableModel {
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        EmployeeSchedule employeeSchedule = employeeSchedules.get(rowIndex);
-        Employee employee = employeeSchedule.getEmployee();
+        EmployeeAssignment EmployeeAssignment = employeeAssignments.get(rowIndex);
+        Employee employee = EmployeeAssignment.getEmployee();
         switch (columnIndex) {
             case 0:
                 employee.setFirstName((String) aValue);
@@ -90,13 +87,13 @@ public class ShiftTableModel implements TableModel {
                 employee.setEmployeeId((Long) aValue);
                 break;
             case 3:
-                employeeSchedule.setShiftMode((String) aValue);
+                EmployeeAssignment.getAssignment().setDepartment((String)aValue);
                 break;
             default:
                 throw new IllegalArgumentException("Invalid column index " + columnIndex);
         }
         for (TableModelListener listener : modelListeners) {
-            listener.tableChanged(new TableModelEvent(this));
+            listener.tableChanged(new TableModelEvent(this, rowIndex, rowIndex, columnIndex));
         }
     }
 

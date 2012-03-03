@@ -1,37 +1,32 @@
 package de.tfojuth.projects.teamworker.blgexport.view.swing.table;
 
-import de.tfojuth.projects.teamworker.blgexport.controller.ScheduleGateway;
-import de.tfojuth.projects.teamworker.blgexport.model.ShiftSchedule;
+import de.tfojuth.projects.teamworker.blgexport.model.EmployeeAssignment;
+import de.tfojuth.projects.teamworker.blgexport.model.EmployeeAssignmentDao;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
+import java.util.Date;
+import java.util.List;
 
-/**
- * Created by IntelliJ IDEA.
- * User: tfojuth
- * Date: 19.02.12
- * Time: 19:49
- * To change this template use File | Settings | File Templates.
- */
 @Component
 public class ShiftTableController implements TableModelListener {
 
     @Resource
-    private ScheduleGateway scheduleGateway;
+    private EmployeeAssignmentDao employeeAssignmentDao;
 
     public JTable getShiftTable() {
-        ShiftSchedule shiftSchedule = scheduleGateway.getActualShiftScheduleForCalendarWeek();
-        ShiftTableModel shiftTableModel = new ShiftTableModel(shiftSchedule);
+        List<EmployeeAssignment> employeeAssignments = employeeAssignmentDao.findByDate(new Date());
+        ShiftTableModel shiftTableModel = new ShiftTableModel(employeeAssignments);
         shiftTableModel.addTableModelListener(this);
         return new JTable(shiftTableModel);
     }
 
     @Override
     public void tableChanged(TableModelEvent e) {
-        System.out.println(e.getType());
+        System.out.println(e.getFirstRow());
         System.out.println(e.getSource());
         System.out.println(e.getColumn());
     }
