@@ -1,7 +1,7 @@
 package de.tfojuth.projects.teamworker.blgexport.view.swing;
 
 import de.tfojuth.projects.teamworker.blgexport.view.swing.pagination.PaginationBar;
-import de.tfojuth.projects.teamworker.blgexport.view.swing.shifttable.ShiftTableController;
+import de.tfojuth.projects.teamworker.blgexport.view.swing.table.ShiftTableController;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;

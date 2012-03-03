@@ -3,6 +3,7 @@ package de.tfojuth.projects.teamworker.blgexport.view.swing.pagination;
 import org.springframework.stereotype.Component;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.Date;
 
 /**
@@ -17,6 +18,12 @@ public class PaginationBar extends JPanel {
 
     public PaginationBar() {
         super(true);
+        this.setLayout(new BorderLayout());
+
+        JButton buttonNextWeek = new JButton("Nächste Woche");
+        JButton buttinLastWeek = new JButton("Vorige Woche");
+
+
         add(new JLabel(new Date().toString()));
     }
 }

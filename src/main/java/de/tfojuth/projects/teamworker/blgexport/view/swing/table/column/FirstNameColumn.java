@@ -1,4 +1,4 @@
-package de.tfojuth.projects.teamworker.blgexport.view.swing.shifttable.column;
+package de.tfojuth.projects.teamworker.blgexport.view.swing.table.column;
 
 import javax.swing.table.TableColumn;
 
@@ -11,5 +11,9 @@ import javax.swing.table.TableColumn;
  */
 public class FirstNameColumn extends TableColumn{
 
-
+    public FirstNameColumn() {
+        super();
+        setHeaderValue("Vorname");
+        setResizable(false);
+    }
 }

@@ -1,4 +1,4 @@
-package de.tfojuth.projects.teamworker.blgexport.view.swing.shifttable;
+package de.tfojuth.projects.teamworker.blgexport.view.swing.table;
 
 import de.tfojuth.projects.teamworker.blgexport.controller.ScheduleGateway;
 import de.tfojuth.projects.teamworker.blgexport.model.ShiftSchedule;

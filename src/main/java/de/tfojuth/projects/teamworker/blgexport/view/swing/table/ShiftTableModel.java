@@ -1,4 +1,4 @@
-package de.tfojuth.projects.teamworker.blgexport.view.swing.shifttable;
+package de.tfojuth.projects.teamworker.blgexport.view.swing.table;
 
 import de.tfojuth.projects.teamworker.blgexport.model.Employee;
 import de.tfojuth.projects.teamworker.blgexport.model.EmployeeSchedule;
