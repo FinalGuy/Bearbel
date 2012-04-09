@@ -17,11 +17,14 @@ public class ShiftTableController implements TableModelListener {
     @Resource
     private EmployeeAssignmentDao employeeAssignmentDao;
 
+    @Resource
+    private ShiftTableColumnModel shiftTableColumnModel;
+
     public JTable getShiftTable() {
         List<EmployeeAssignment> employeeAssignments = employeeAssignmentDao.findByDate(new Date());
         ShiftTableModel shiftTableModel = new ShiftTableModel(employeeAssignments);
         shiftTableModel.addTableModelListener(this);
-        return new JTable(shiftTableModel);
+        return new JTable(shiftTableModel, shiftTableColumnModel);
     }
 
     @Override
