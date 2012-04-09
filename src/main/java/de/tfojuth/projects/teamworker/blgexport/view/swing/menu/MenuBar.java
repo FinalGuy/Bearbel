@@ -1,5 +1,6 @@
 package de.tfojuth.projects.teamworker.blgexport.view.swing.menu;
 
+import de.tfojuth.projects.teamworker.blgexport.view.swing.menu.file.FileMenu;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -7,18 +8,11 @@ import javax.annotation.Resource;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Created by IntelliJ IDEA.
- * User: tfojuth
- * Date: 20.02.12
- * Time: 20:47
- * To change this template use File | Settings | File Templates.
- */
 @Component
 public class MenuBar extends JMenuBar {
 
     @Resource
-    private DateiMenu dateiMenu;
+    private FileMenu fileMenu;
 
     @Resource
     private ExportMenu exportMenu;
@@ -35,7 +29,7 @@ public class MenuBar extends JMenuBar {
 
     @PostConstruct
     public void addContent() {
-        add(dateiMenu);
+        add(fileMenu);
         add(exportMenu);
         add(importMenu);
     }
