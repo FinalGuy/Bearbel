@@ -9,6 +9,8 @@ import javax.annotation.PostConstruct;
 import javax.swing.*;
 import java.awt.*;
 
+import static java.awt.BorderLayout.*;
+
 @Component
 public class MainWindow extends JFrame {
 
@@ -31,10 +33,14 @@ public class MainWindow extends JFrame {
 
     @PostConstruct
     public void addContent() {
-        JTable table = shiftTableController.getShiftTable();
-        JScrollPane scrollPane = new JScrollPane(table);
-        this.getContentPane().add(scrollPane, BorderLayout.CENTER);
-        this.getContentPane().add(paginationBar, BorderLayout.NORTH);
+        JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.LEFT);
+        tabbedPane.add("LOGM3 (7655)", new JScrollPane(shiftTableController.getShiftTable()));
+        tabbedPane.add("LOGCL203 (7656)", new JScrollPane(shiftTableController.getShiftTable()));
+        tabbedPane.add("LOGVWG34 (7751)", new JScrollPane(shiftTableController.getShiftTable()));
+        tabbedPane.add("LOGPBPCH (7656)", new JScrollPane(shiftTableController.getShiftTable()));
+        this.getContentPane().add(tabbedPane, CENTER);
+        this.getContentPane().add(paginationBar, NORTH);
+        this.getContentPane().add(new JButton("Konvertieren"), SOUTH);
         this.setJMenuBar(menuBar);
     }
 

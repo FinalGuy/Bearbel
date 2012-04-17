@@ -1,44 +1,42 @@
 package de.tfojuth.projects.teamworker.blgexport.view.swing.table;
 
-import de.tfojuth.projects.teamworker.blgexport.model.EmployeeAssignment;
-import org.springframework.util.Assert;
-
-import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ShiftTableModel implements TableModel {
 
-    private final List<EmployeeAssignment> employeeAssignments;
+
+    private static final int NUMBER_OF_ROWS = 80;
+    private static final String[] COLUMN_NAMES = {"Personal#", "Storno", "Datum", "Schichtbeginn", "Schichtende", "Qualifikation", "Stundenverrechnungssatz", "Nachname", "Vorname", "Karten#", "Geschlecht"};
+
+    private Object[][] data = new Object[NUMBER_OF_ROWS][COLUMN_NAMES.length];
+
+
     private List<TableModelListener> modelListeners = new ArrayList<TableModelListener>();
 
-    private final String[] COLUMN_LABELS = {"Mitarbeiter", "Einsatz"};
-
-    public ShiftTableModel(List<EmployeeAssignment> employeeAssignments) {
-        this.employeeAssignments = employeeAssignments;
-    }
 
     @Override
     public int getRowCount() {
-        return employeeAssignments.size();
+        return data.length;
     }
 
     @Override
     public int getColumnCount() {
-        return COLUMN_LABELS.length;
+        return COLUMN_NAMES.length;
     }
 
     @Override
     public String getColumnName(int columnIndex) {
-        Assert.isTrue(columnIndex < COLUMN_LABELS.length);
-        return COLUMN_LABELS[columnIndex];
+        return COLUMN_NAMES[columnIndex];
     }
 
     @Override
     public Class<?> getColumnClass(int columnIndex) {
-        return getValueAt(0, columnIndex).getClass();
+        if (columnIndex == 1) return Boolean.class;
+        return String.class;
     }
 
     @Override
@@ -48,20 +46,12 @@ public class ShiftTableModel implements TableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        EmployeeAssignment EmployeeAssignment = employeeAssignments.get(rowIndex);
-        if (columnIndex == 0) {
-            return EmployeeAssignment.getEmployee();
-        } else {
-            return EmployeeAssignment.getAssignment();
-        }
+        return data[rowIndex][columnIndex];
     }
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        // TODO ..
-        for (TableModelListener listener : modelListeners) {
-            listener.tableChanged(new TableModelEvent(this, rowIndex, rowIndex, columnIndex));
-        }
+        data[rowIndex][columnIndex] = aValue;
     }
 
     @Override

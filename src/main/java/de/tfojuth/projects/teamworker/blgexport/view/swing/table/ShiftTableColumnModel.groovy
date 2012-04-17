@@ -20,8 +20,7 @@ class ShiftTableColumnModel extends DefaultTableColumnModel implements TableColu
 
     @PostConstruct
     void initializeColumns() {
-        addColumn(employeeColumn)
-        addColumn(assignmentColumn)
+        addColumn(new EmployeeColumn())
     }
 
 }

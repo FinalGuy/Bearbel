@@ -1,0 +1,5 @@
+Personalnummer;Storno;Datum;Arbeitsbeginn;Schichtende;Kostenstelle;Einsatzort;Qualifikation;Stundenverrechnungssatz;Nachname;Vorname;Kartennummer;Geschlecht;
+10915; ;170412;0600;1400;7656;LOGPBPCH;LH;1472;Demirci;Dursun;104567;m;
+10915; ;180412;0600;1400;7656;LOGPBPCH;LH;1472;Demirci;Dursun;104567;m;
+10915; ;170412;0600;1330;7656;LOGPBPCH;LH;1472;Demirci;Dursun;104567;m;
+
