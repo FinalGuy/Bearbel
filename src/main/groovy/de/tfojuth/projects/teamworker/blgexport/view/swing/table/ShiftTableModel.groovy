@@ -8,12 +8,10 @@ import java.util.List;
 
 public class ShiftTableModel implements TableModel {
 
+    static final NUMBER_OF_ROWS = 80;
+    static final COLUMN_NAMES = ["Personal#", "Storno", "Datum", "Schichtbeginn", "Schichtende", "Qualifikation", "Stundenverrechnungssatz", "Nachname", "Vorname", "Karten#", "Geschlecht"];
 
-    private static final int NUMBER_OF_ROWS = 80;
-    private static final String[] COLUMN_NAMES = {"Personal#", "Storno", "Datum", "Schichtbeginn", "Schichtende", "Qualifikation", "Stundenverrechnungssatz", "Nachname", "Vorname", "Karten#", "Geschlecht"};
-
-    private Object[][] data = new Object[NUMBER_OF_ROWS][COLUMN_NAMES.length];
-
+    private Object[][] data = new Object[NUMBER_OF_ROWS][COLUMN_NAMES.size];
 
     private List<TableModelListener> modelListeners = new ArrayList<TableModelListener>();
 
@@ -25,7 +23,7 @@ public class ShiftTableModel implements TableModel {
 
     @Override
     public int getColumnCount() {
-        return COLUMN_NAMES.length;
+        return COLUMN_NAMES.size
     }
 
     @Override
