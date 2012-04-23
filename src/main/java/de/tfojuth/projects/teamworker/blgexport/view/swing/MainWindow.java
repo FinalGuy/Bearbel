@@ -26,7 +26,7 @@ public class MainWindow extends JFrame {
 
     public MainWindow() throws HeadlessException {
         super("Bärbel (BLG export tool) v0.1");
-        setPreferredSize(new Dimension(800, 500));
+        setPreferredSize(new Dimension(900, 500));
         setLocation(200, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

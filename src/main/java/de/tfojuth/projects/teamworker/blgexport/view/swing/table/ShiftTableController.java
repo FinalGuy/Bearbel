@@ -1,6 +1,5 @@
 package de.tfojuth.projects.teamworker.blgexport.view.swing.table;
 
-import de.tfojuth.projects.teamworker.blgexport.model.EmployeeAssignmentDao;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -10,9 +9,6 @@ import javax.swing.event.TableModelListener;
 
 @Component
 public class ShiftTableController implements TableModelListener {
-
-    @Resource
-    private EmployeeAssignmentDao employeeAssignmentDao;
 
     @Resource
     private ShiftTableColumnModel shiftTableColumnModel;
