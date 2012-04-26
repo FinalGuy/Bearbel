@@ -5,16 +5,16 @@ repositories {
     mavenCentral()
 }
 
-springversion = "3.0.7.RELEASE"
+project.ext.springversion = "3.0.7.RELEASE"
 
 dependencies {
     groovy group: 'org.codehaus.groovy', name: 'groovy', version: '1.7.10'
     compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
-    compile group: 'org.springframework', name: 'spring-core', version: springversion
-    compile group: 'org.springframework', name: 'spring-beans', version: springversion
-    compile group: 'org.springframework', name: 'spring-aop', version: springversion
-    compile group: 'org.springframework', name: 'spring-context', version: springversion
-    compile group: 'org.springframework', name: 'spring-web', version: springversion
-    compile group: 'org.springframework', name: 'spring-webmvc', version: springversion
+    compile group: 'org.springframework', name: 'spring-core', version: project.ext.springversion
+    compile group: 'org.springframework', name: 'spring-beans', version: project.ext.springversion
+    compile group: 'org.springframework', name: 'spring-aop', version: project.ext.springversion
+    compile group: 'org.springframework', name: 'spring-context', version: project.ext.springversion
+    compile group: 'org.springframework', name: 'spring-web', version: project.ext.springversion
+    compile group: 'org.springframework', name: 'spring-webmvc', version: project.ext.springversion
     testCompile group: 'junit', name: 'junit', version: '4.+'
 }
